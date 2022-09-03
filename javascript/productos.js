@@ -384,7 +384,7 @@ function filterProductos() {
     productos1.forEach((doc) => {
         datos = doc.data();
         let nombre = datos.DESCRIPCION.toLowerCase();
-        let codigo = datos.CODIGO.toLowerCase();
+        let codigo = datos.CODIGO.toString().toLowerCase();
         let texto = document.getElementById("buscador").value.toLowerCase();
         if (nombre.indexOf(texto) !== -1) {
             suma.push(datos.STOCK * datos.PRECIO_VENTA);
