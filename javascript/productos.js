@@ -581,12 +581,14 @@ function eliminarProducto(element) {
 
 function EditarProducto(element) {
     var feed = document.getElementById("main");
-
-    db.collection("productos").where("CODIGO", "==", element.id)
+    
+    db.collection("productos").doc(element.id)
         .get()
-        .then((querySnapshot) => {
-            querySnapshot.forEach((doc) => {
+        .then((doc) => {
+            
+            
                 datos = doc.data();
+                console.log("entrò")
                 var urlProfile = datos.urlProfile;
 
                 feed.innerHTML = `<br><h3>Datos del producto</h3>`;
@@ -667,7 +669,7 @@ function EditarProducto(element) {
 
 
 
-            })
+        
         })
 }
 var ventaGarray = [];
